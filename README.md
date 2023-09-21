@@ -52,4 +52,4 @@ CREATE TABLE ModeleDetectionFraude (
 );
 ```
 ## Outils 
-![Image description](model.png)
+![Image description](outils.png)
