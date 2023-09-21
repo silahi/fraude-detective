@@ -1,11 +1,3 @@
-# Fraude-detective
-Détection de fraude dans les paiements en ligne
-
-## Modèle de Données
-![Image description](model.png)
-
-## Script SQL
-```sql
 CREATE TABLE Client (
     id BIGINT PRIMARY KEY,
     nom VARCHAR(255),
@@ -50,6 +42,3 @@ CREATE TABLE ModeleDetectionFraude (
     parametres VARCHAR(255),
     type VARCHAR(50)
 );
-```
-## Outils 
-![Image description](model.png)
