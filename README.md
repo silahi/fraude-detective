@@ -2,7 +2,7 @@
 Détection de fraude dans les paiements en ligne
 
 ## Modèle de Données
-![Image description](model.png)
+![Image description](model-titled.png)
 
 ## Script SQL
 ```sql
