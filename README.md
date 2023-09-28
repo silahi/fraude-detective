@@ -53,3 +53,6 @@ CREATE TABLE ModeleDetectionFraude (
 ```
 ## Outils 
 ![Image description](outils.png)
+
+## Quelques KPIs : Prévention de la fraude
+![Image description](dashboard.png)
