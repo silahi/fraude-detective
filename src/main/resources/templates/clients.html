@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des clients</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body> 
+    <div th:insert="~{navbar :: navbar}"></div>
+    <div class="container mt-4">
+        <h1>Liste des clients</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="client : ${clients}">
+                    <td th:text="${client.id}"></td>
+                    <td th:text="${client.nom}"></td>
+                    <td th:text="${client.adresse}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li th:class="${currentPage == 0} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/clients/list(page=0)}">Première</a>
+                </li>
+                <li th:class="${currentPage == 0} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/clients/list(page=${currentPage - 1})}">Précédente</a>
+                </li>
+                <li th:class="${currentPage + 1 >= page.totalPages} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/clients/list(page=${currentPage + 1})}">Suivante</a>
+                </li>
+                <li th:class="${currentPage + 1 >= page.totalPages} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/clients/list(page=${page.totalPages - 1})}">Dernière</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

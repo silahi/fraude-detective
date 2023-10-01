@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des alertes</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+    <div th:insert="~{navbar :: navbar}"></div>
+    <div class="container mt-4">
+        <h1>Liste des alertes</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date/Heure de détection</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="alerte : ${alertes}">
+                    <td th:text="${alerte.id}"></td>
+                    <td th:text="${alerte.dateHeureDetection}"></td>
+                    <td th:text="${alerte.description}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li th:class="${currentPage == 0} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/alertes/list(page=0)}">Première</a>
+                </li>
+                <li th:class="${currentPage == 0} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/alertes/list(page=${currentPage - 1})}">Précédente</a>
+                </li>
+                <li th:class="${currentPage + 1 >= page.totalPages} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/alertes/list(page=${currentPage + 1})}">Suivante</a>
+                </li>
+                <li th:class="${currentPage + 1 >= page.totalPages} ? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/alertes/list(page=${page.totalPages - 1})}">Dernière</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
